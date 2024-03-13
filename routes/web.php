@@ -15,7 +15,9 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/','ArticleController@index');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
