@@ -3,6 +3,7 @@
 @section('title', '記事一覧')
 
 @section('content')
+  @include('nav')
   <div>
       @foreach($articles as $article)
         <div>
