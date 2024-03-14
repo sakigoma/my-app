@@ -28,6 +28,8 @@ Route::get('/article', [ArticleController::class, 'index'])->name('article');
 
 Route::get('post/create', [PostController::class, 'create']);
 
+Route::post('post', [PostController::class, 'store'])->name('post.store');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
