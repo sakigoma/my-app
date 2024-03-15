@@ -20,6 +20,11 @@ class PostController extends Controller
         $post = Post::create($validated);
         return back();
     }
+
+    public function index() {
+        $post = Post::all();
+        return view('post.index' compact('post'));
+    }
 }
 
 
