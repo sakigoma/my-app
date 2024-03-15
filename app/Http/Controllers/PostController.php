@@ -15,7 +15,6 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:20',
             'body' => 'required|max:400',
-            'user_id'
         ]);
 
         $validated['user_id'] = auth()->id();
