@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
 
-Route::get('post/create', [PostController::class, 'create']);
+Route::get('post/create', [PostController::class, 'create'])->middleware(['auth', 'admin']);
 
 Route::post('post', [PostController::class, 'store'])->name('post.store');
 
