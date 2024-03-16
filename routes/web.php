@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
 
 // 投稿作成
-Route::get('post/create', [PostController::class, 'create'])->middleware(['auth', 'admin']);
+Route::get('post/create', [PostController::class, 'create'])->middleware(['auth']);
 
 // 投稿データ保存
 Route::post('post', [PostController::class, 'store'])->name('post.store');
@@ -45,11 +45,11 @@ Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit
 // 更新
 Route::patch('post/{post}', [PostController::class, 'update'])->name('post.update');
 
-// Route::middleware(['auth', 'can:admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+});
 
 require __DIR__.'/auth.php';
 
