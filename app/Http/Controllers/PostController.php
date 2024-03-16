@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
