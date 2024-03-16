@@ -22,9 +22,9 @@
                     {{ $post->body }}
                 </p>
                 <div class="text-sm font-semibold flex flex-row-reverse">
-                    <p>{{ $post->created_at }}<p>
-                </div>,
-            </div>,
+                    <p> {{ $post->created_at }}<p>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>
