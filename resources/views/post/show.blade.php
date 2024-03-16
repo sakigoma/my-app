@@ -1,10 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            フォーム
+            個別表示
         </h2>
     </x-slot>
-
     <div class="max-w-7xl mx-auto px-6">
         <div class="bg-white w-full rounded-2xl">
             <div class="mt-4 p-4">
