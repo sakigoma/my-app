@@ -32,6 +32,8 @@ Route::post('post', [PostController::class, 'store'])->name('post.store');
 
 Route::get('post', [PostController::class, 'index']);
 
+Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
+
 // Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
