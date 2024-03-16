@@ -16,6 +16,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
+// トップページ
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,13 +27,23 @@ Route::get('/dashboard', function () {
 
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
 
+// 投稿作成
 Route::get('post/create', [PostController::class, 'create'])->middleware(['auth', 'admin']);
 
+// 投稿データ保存
 Route::post('post', [PostController::class, 'store'])->name('post.store');
 
+// 一覧画面
 Route::get('post', [PostController::class, 'index']);
 
+// 個別投稿表示
 Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
+
+// 編集画面表示
+Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+
+// 更新
+Route::patch('post/{post}', [PostController::class, 'update'])->name('post.update');
 
 // Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
