@@ -34,7 +34,7 @@ Route::get('post/create', [PostController::class, 'create'])->middleware(['auth'
 Route::post('post', [PostController::class, 'store'])->name('post.store');
 
 // 一覧画面
-Route::get('post', [PostController::class, 'index']);
+Route::get('post', [PostController::class, 'index'])->name('post.index');
 
 // 個別投稿表示
 Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
