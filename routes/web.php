@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
 
 // 投稿作成
-Route::get('post/create', [PostController::class, 'create'])->middleware(['auth']);
+Route::get('post/create', [PostController::class, 'create'])->middleware(['auth'])->name('post.create');
 
 // 投稿データ保存
 Route::post('post', [PostController::class, 'store'])->name('post.store');
