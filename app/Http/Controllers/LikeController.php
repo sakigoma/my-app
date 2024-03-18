@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Nice;
+use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
@@ -22,6 +22,5 @@ class LikeController extends Controller
         $like = Like::where('post_id', $post->id)->where('user_id', $user)->first();
         $like->delete();
         return back();
-
     }
 }

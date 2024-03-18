@@ -27,6 +27,32 @@
                         {{ $post->created_at }} / {{ $post->user->name??'' }}
                     </p>
                 </div>
+
+                <span>
+                    <img src="{{asset('img/nicebutton.png')}}" width="30px">
+
+                    <!-- もし$likeがあれば＝ユーザーが「いいね」をしていたら -->
+                    @if($like)
+                    <!-- 「いいね」取消用ボタンを表示 -->
+                        <a href="{{ route('unnice', $post) }}" class="btn btn-success btn-sm">
+                            いいね
+                            <!-- 「いいね」の数を表示 -->
+                            <span class="badge">
+                                {{ $post->likes->count() }}
+                            </span>
+                        </a>
+                    @else
+                    <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+                        <a href="{{ route('like', $post) }}" class="btn btn-secondary btn-sm">
+                            いいね
+                            <!-- 「いいね」の数を表示 -->
+                            <span class="badge">
+                                {{ $post->likes->count() }}
+                            </span>
+                        </a>
+                    @endif
+                </span>
+                
             </div>
         @endforeach
         <div class="mb-4">
