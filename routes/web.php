@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LikeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,10 @@ Route::patch('post/{post}', [PostController::class, 'update'])->name('post.updat
 
 // 削除
 Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
+
+// いいね
+Route::get('post/like/{post}', [LikeController::class, 'like'])->name('like');
+Route::get('post/unlike/{post}', [LikeController::class, 'unlike'])->name('unlike');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
