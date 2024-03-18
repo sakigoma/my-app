@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Like;
 
 class PostController extends Controller
 {
@@ -31,11 +32,13 @@ class PostController extends Controller
     public function index() {
         // $posts = Post::all();
         $posts = Post::paginate(10);
-        return view('post.index', compact('posts'));
+        $like = Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+        return view('post.index', compact('posts', 'like'));
     }
 
     public function show(Post $post) {
-        return view('post.show', compact('post'));
+        $like = Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
+        return view('post.show', compact('post', 'like'));
     }
 
     public function edit(Post $post) {
