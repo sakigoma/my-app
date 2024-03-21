@@ -50,10 +50,6 @@ Route::patch('post/{post}', [PostController::class, 'update'])->name('post.updat
 // 削除
 Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
-// いいね
-Route::get('post/like/{post}', [LikeController::class, 'like'])->name('like');
-Route::get('post/unlike/{post}', [LikeController::class, 'unlike'])->name('unlike');
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

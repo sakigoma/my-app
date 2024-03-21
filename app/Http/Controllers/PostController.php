@@ -32,13 +32,11 @@ class PostController extends Controller
     public function index() {
         // $posts = Post::all();
         $posts = Post::paginate(10);
-        $like = Like::where('post_id', $posts->id)->where('user_id', auth()->user()->id)->first();
-        return view('post.index', compact('posts', 'likes'));
+        return view('post.index', compact('posts'));
     }
 
     public function show(Post $post) {
-        $like = Like::where('post_id', $post->id)->where('user_id', auth()->user()->id)->first();
-        return view('post.show', compact('post', 'like'));
+        return view('post.show', compact('post'));
     }
 
     public function edit(Post $post) {
